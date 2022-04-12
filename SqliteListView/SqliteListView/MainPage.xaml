@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SqliteListView.MainPage">
+
+    <StackLayout>
+
+        <Label Text="Alunos" FontAttributes="Bold" FontSize="36" HorizontalTextAlignment="Center" BackgroundColor="DarkGray" />
+
+        <Entry x:Name="txtId" Placeholder="ID do Aluno" IsReadOnly="True" />
+        <Entry x:Name="txtNome" Placeholder="Nome do Aluno" />
+        <Entry x:Name="txtCurso" Placeholder="Curso do Aluno" />
+
+        <StackLayout Orientation="Horizontal">
+            <Button x:Name="btnAdicionar" Text="Adicionar" HorizontalOptions="FillAndExpand" Clicked="btnAdicionar_Clicked" />
+            <Button x:Name="btnAtualizar" Text="Atualizar" HorizontalOptions="FillAndExpand" Clicked="btnAtualizar_Clicked" />
+            <Button x:Name="btnExcluir" Text="Excluir" HorizontalOptions="FillAndExpand" Clicked="btnExcluir_Clicked" />
+        </StackLayout>
+
+        <SearchBar x:Name="sbAluno" TextChanged="sbAluno_TextChanged" />
+
+        <ListView x:Name="lstAlunos" ItemSelected="lstAlunos_ItemSelected" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid ColumnDefinitions="*,*,*">
+                            <Label Text="{Binding Id}" HorizontalTextAlignment="Center" />
+                            <Label Grid.Column="1" Text="{Binding Nome}" HorizontalTextAlignment="Center" />
+                            <Label Grid.Column="2" Text="{Binding Curso}" HorizontalTextAlignment="Center" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button x:Name="btnFinalizar" Text="Finalizar o Aplicativo" Clicked="btnFinalizar_Clicked" />
+
+    </StackLayout>
+
+</ContentPage>
